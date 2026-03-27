@@ -8,34 +8,36 @@
 ---
 
 ## 📌 Overview
-**MetricFlow Ansible** is an automated VM monitoring solution built using Ansible.  
-It dynamically discovers AWS EC2 instances, collects system-level metrics, and generates a **beautiful HTML dashboard** with optional email reporting.
+**MetricFlow Ansible** is a modular, role-based VM monitoring system built using Ansible.  
+It dynamically discovers AWS EC2 instances, collects system-level metrics, and generates a **centralized HTML dashboard with automated email reporting**.
 
 ---
 
 ## ✨ Features
 
 - ⚡ Dynamic AWS EC2 inventory (no static IPs)
-- 🖥️ Multi-node metric collection
-- 📊 CPU, Memory, Disk monitoring
+- 🖥️ Parallel multi-node metric collection
+- 📊 CPU, Memory, Disk usage monitoring
 - ⏱️ Uptime & Last Reboot tracking
-- 🎨 HTML dashboard using Jinja2
-- 📧 Email reporting system
-- 🔄 Agentless architecture
+- 🧩 Modular **Ansible role-based architecture**
+- 🎨 HTML dashboard using Jinja2 templates
+- 📧 Automated email reporting
+- 🔄 Agentless and idempotent execution
 
 ---
 
 ## 🏗️ Architecture
 
 ```text
-Ansible Control Node 
+Ansible Control Node
         ↓
-AWS EC2 Instances 
+Dynamic AWS EC2 Inventory
         ↓
-Metrics Collection 
+Ansible Roles
+   ├── Metrics Collection
+   ├── Report Generation
+   └── Email Notification
         ↓
-Aggregation 
+HTML Dashboard
         ↓
-HTML Dashboard 
-        ↓
-Email Report
+Email Delivery
