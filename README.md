@@ -1,35 +1,41 @@
-# MetricFlow Ansible
+# 🚀 MetricFlow Ansible
 
-## Overview
-MetricFlow Ansible is an automated VM monitoring solution built using Ansible. It dynamically discovers AWS EC2 instances, collects system-level metrics, and generates a consolidated HTML dashboard with optional email reporting.
+![Ansible](https://img.shields.io/badge/Automation-Ansible-red?logo=ansible)
+![AWS](https://img.shields.io/badge/Cloud-AWS-orange?logo=amazon-aws)
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-## Features
-- Dynamic AWS EC2 inventory (no static IPs)
-- Multi-node metric collection
-- CPU, Memory, Disk usage monitoring
-- Uptime and last reboot tracking
-- Clean HTML dashboard using Jinja2 templates
-- Email-based reporting system
-- Scalable and agentless architecture
+---
 
-## Architecture
-Ansible Control Node → AWS EC2 Instances → Metrics Collection → Aggregation → HTML Report → Email Delivery
+## 📌 Overview
+**MetricFlow Ansible** is an automated VM monitoring solution built using Ansible.  
+It dynamically discovers AWS EC2 instances, collects system-level metrics, and generates a **beautiful HTML dashboard** with optional email reporting.
 
-## Tech Stack
-- Ansible
-- AWS EC2
-- Python (boto3)
-- Jinja2 (templating)
+---
 
-## How It Works
-1. Ansible dynamically fetches EC2 instances using AWS tags
-2. Metrics are collected from all nodes in parallel
-3. Data is aggregated on the control node
-4. HTML report is generated using Jinja2
-5. Report is optionally sent via email
+## ✨ Features
 
-## Run the Project
+- ⚡ Dynamic AWS EC2 inventory (no static IPs)
+- 🖥️ Multi-node metric collection
+- 📊 CPU, Memory, Disk monitoring
+- ⏱️ Uptime & Last Reboot tracking
+- 🎨 HTML dashboard using Jinja2
+- 📧 Email reporting system
+- 🔄 Agentless architecture
 
-```bash
-cd vm-monitor
-ansible-playbook -i inventory/aws_ec2.yml playbooks/main.yml
+---
+
+## 🏗️ Architecture
+
+```text
+Ansible Control Node 
+        ↓
+AWS EC2 Instances 
+        ↓
+Metrics Collection 
+        ↓
+Aggregation 
+        ↓
+HTML Dashboard 
+        ↓
+Email Report
