@@ -1,0 +1,6 @@
+smtp_server: "smtp.gmail.com"
+smtp_port: 587
+
+email_user: "{{ lookup('env', 'EMAIL_USER') }}"
+email_pass: "{{ lookup('env', 'EMAIL_PASS') }}"
+email_to: "{{ lookup('env', 'EMAIL_TO') }}"
