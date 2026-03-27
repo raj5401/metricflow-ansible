@@ -1,3 +1,9 @@
-- import_playbook: collect_metrics.yml
-- import_playbook: send_report.yml
+- hosts: env_dev
+  become: yes
+  roles:
+    - metrics
 
+- hosts: localhost
+  roles:
+    - report
+    - email

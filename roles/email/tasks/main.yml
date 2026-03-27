@@ -1,0 +1,10 @@
+- name: Send animated HTML report via email
+  mail:
+    host: "{{ smtp_server }}"
+    port: "{{ smtp_port }}"
+    username: "{{ email_user }}"
+    password: "{{ email_pass }}"
+    to: "{{ email_to }}"
+    subject: "{{ subject_line }}"
+    body: "{{ lookup('template', role_path + '/templates/report_email_animated.html.j2') }}"
+    subtype: html

@@ -1,8 +1,3 @@
-- name: Collect VM metrics
-  hosts: env_dev
-  become: true
-  gather_facts: true
-  tasks:
 
     - name: Install sysstat (for mpstat)
       apt:

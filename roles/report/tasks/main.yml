@@ -1,0 +1,23 @@
+- name: Collect all metrics into list
+  set_fact:
+    collected_metrics: >-
+      {{
+        hostvars |
+        dict2items |
+        selectattr('value.vm_metrics', 'defined') |
+        map(attribute='value.vm_metrics') |
+        list
+      }}
+
+- name: Generate timestamp
+  set_fact:
+    timestamp: "{{ lookup('pipe', 'date +\"%Y-%m-%d %H:%M:%S %Z\"') }}"
+
+- name: Generate subject
+  set_fact:
+    subject_line: "📊 VM Report – {{ timestamp }}"
+
+- name: Save HTML report locally
+  template:
+    src: "{{ role_path }}/../../roles/email/templates/report_email_animated.html.j2"
+    dest: /tmp/vm_report.html
