@@ -1,0 +1,16 @@
+- name: Terminate EC2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    aws_region: "us-east-1"
+    env_tag: "dev"
+
+  tasks:
+    - name: Terminate instances
+      amazon.aws.ec2_instance:
+        state: absent
+        region: "{{ aws_region }}"
+        filters:
+          "tag:Environment": "{{ env_tag }}"
